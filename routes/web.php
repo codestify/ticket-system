@@ -1,6 +1,10 @@
 <?php
 
-use App\Http\Controllers\Api\OpenTicketsController;
+use App\Http\Controllers\Api\{
+    ClosedTicketsController,
+    OpenTicketsController
+};
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +24,5 @@ Route::get('/', function () {
 
 Route::prefix('api')->group(function () {
     Route::get('open-tickets', OpenTicketsController::class);
+    Route::get('closed-tickets', ClosedTicketsController::class);
 });
