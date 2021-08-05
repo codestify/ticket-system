@@ -22,6 +22,20 @@ class TicketTest extends TestCase
         $openTickets->each(function ($ticket) {
             $this->assertFalse($ticket->status);
         });
+    }
+
+    /** @test * */
+    public function closed_tickets_can_be_retrieved()
+    {
+        Ticket::factory()->count(2)->create();
+        Ticket::factory()->count(3)->closed()->create();
+
+        $closedTickets = Ticket::closed()->get();
+
+        $this->assertCount(3, $closedTickets);
+        $closedTickets->each(function ($ticket) {
+            $this->assertTrue($ticket->status);
+        });
 
     }
 }

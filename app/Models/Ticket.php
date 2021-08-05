@@ -19,6 +19,11 @@ class Ticket extends Model
         $query->where('status', false);
     }
 
+    public function scopeClosed($query)
+    {
+        $query->where('status', true);
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
