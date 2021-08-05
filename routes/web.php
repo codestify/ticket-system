@@ -3,7 +3,8 @@
 use App\Http\Controllers\Api\{
     ClosedTicketsController,
     OpenTicketsController,
-    UserTicketsController,
+    StatsController,
+    UserTicketsController
 };
 
 use Illuminate\Support\Facades\Route;
@@ -27,4 +28,5 @@ Route::prefix('api')->group(function () {
     Route::get('open-tickets', OpenTicketsController::class);
     Route::get('closed-tickets', ClosedTicketsController::class);
     Route::get('users/{email}/tickets', UserTicketsController::class);
+    Route::get('stats', StatsController::class);
 });

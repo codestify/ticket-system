@@ -18,11 +18,11 @@ class UserTicketsTest extends TestCase
         $user_1_email = 'user1@test.com';
         $user_2_email = 'user2@test.com';
 
-        $user_1 = User::factory([
+        User::factory([
             'email' => $user_1_email
         ])->has(Ticket::factory()->count(5))->create();
 
-        $user_2 = User::factory([
+        User::factory([
             'email' => $user_2_email
         ])->has(Ticket::factory()->count(5))->create();
 

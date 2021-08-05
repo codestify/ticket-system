@@ -28,4 +28,9 @@ class Ticket extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public static function mostRecentProcessedTime()
+    {
+        return static::closed()->latest()->first()->updated_at->format('H:i:s');
+    }
 }

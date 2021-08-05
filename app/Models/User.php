@@ -42,6 +42,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public static function userWithHighestCountOfTickets()
+    {
+        return static::withCount('tickets')->orderBy('tickets_count','Desc')->first();
+    }
+
     public function tickets(): HasMany
     {
         return $this->hasMany(Ticket::class);
