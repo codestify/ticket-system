@@ -42,6 +42,7 @@ class OpenTicketsTest extends TestCase
 
         $this->assertCount(2, $response['data']);
         $this->assertArrayHasKey('status', Arr::first($response['data']));
+        $this->assertSame('open', Arr::first($response['data'])['status']);
         $this->assertArrayHasKey('user_name', Arr::first($response['data']));
         $this->assertArrayHasKey('user_email', Arr::first($response['data']));
         $this->assertArrayHasKey('subject', Arr::first($response['data']));
